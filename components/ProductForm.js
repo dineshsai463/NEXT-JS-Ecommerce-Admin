@@ -106,7 +106,7 @@ export default function ProductForm({
           <Spinner />
         )}
         {propertiesToFill.length > 0 && propertiesToFill.map(p => (
-          <div className="" key={productProperties[p.name]}>
+          <div className="" key={p.name}>
             <label>{p.name[0].toUpperCase()+p.name.substring(1)}</label>
             <div>
               <select value={productProperties[p.name]}
@@ -115,7 +115,7 @@ export default function ProductForm({
                       }
               >
                 {p.values.map(v => (
-                  <option key={v._id} value={v}>{v}</option>
+                  <option key={v} value={v}>{v}</option>
                 ))}
               </select>
             </div>
