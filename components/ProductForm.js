@@ -99,14 +99,14 @@ export default function ProductForm({
                 onChange={ev => setCategory(ev.target.value)}>
           <option value="">Uncategorized</option>
           {categories.length > 0 && categories.map(c => (
-            <option value={c._id}>{c.name}</option>
+            <option key= {c._id}value={c._id}>{c.name}</option>
           ))}
         </select>
         {categoriesLoading && (
           <Spinner />
         )}
         {propertiesToFill.length > 0 && propertiesToFill.map(p => (
-          <div className="">
+          <div className="" key={productProperties[p.name]}>
             <label>{p.name[0].toUpperCase()+p.name.substring(1)}</label>
             <div>
               <select value={productProperties[p.name]}
@@ -115,7 +115,7 @@ export default function ProductForm({
                       }
               >
                 {p.values.map(v => (
-                  <option value={v}>{v}</option>
+                  <option key={v._id} value={v}>{v}</option>
                 ))}
               </select>
             </div>
@@ -130,7 +130,7 @@ export default function ProductForm({
             className="flex flex-wrap gap-1"
             setList={updateImagesOrder}>
             {!!images?.length && images.map(link => (
-              <div key={link} className="h-24 bg-white p-4 shadow-sm rounded-sm border border-gray-200">
+              <div  key={link} className="h-24 bg-white p-4 shadow-sm rounded-sm border border-gray-200">
                 <img src={link} alt="" className="rounded-lg"/>
               </div>
             ))}
