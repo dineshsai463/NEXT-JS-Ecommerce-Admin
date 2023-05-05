@@ -7,6 +7,7 @@ const adminEmails = ['kpawan.kumar98@gmail.com']
 
 
 export const authOptions = {
+  secret : process.env.SECRET,
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
